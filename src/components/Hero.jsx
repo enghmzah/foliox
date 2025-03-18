@@ -21,7 +21,7 @@ const Hero = () => {
                         variants={container(0)}
                         initial="hidden"
                         animate="visible"
-                        className="text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+                        className="text-5xl mb-2 font-bold text-gray-900 dark:text-white leading-tight">
             Kevin Rush
                         </motion.h1>
 
