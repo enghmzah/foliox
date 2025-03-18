@@ -1,80 +1,34 @@
-import { useState, useEffect } from "react";
-import { BsSun, BsMoon } from "react-icons/bs";
-import { FaLinkedin } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
-import { FaSquareXTwitter } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa";
-import logo from '../assets/kevinRushLogo.png'
+import { FiSun, FiMoon } from "react-icons/fi";
+import { FaLinkedin, FaGithub, FaInstagram, FaXTwitter } from "react-icons/fa6";
 
-const Navbar = () => {
-  const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem("theme") === "dark"; // استرجاع الوضع المخزن
-  });
-
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [darkMode]);
-
+const Navbar = ({ darkMode, setDarkMode }) => {
   return (
-    <nav className="flex justify-between items-center py-4 px-8 bg-white dark:bg-neutral-900 shadow-md dark:shadow-lg transition-all duration-300">
-     <div className="flex flex-shrink-0 items-center">
-            <p className="mmx-2 w-10 text-gray-900 dark:text-white">Logo</p>
+    <nav className="p-4 flex justify-between items-center bg-white dark:bg-gray-900 shadow-md dark:shadow-lg">
+      {/* اللوجو */}
+      <h1 className="text-xl font-bold text-gray-900 dark:text-white">Logo</h1>
 
-            </div>
+      {/* أيقونات السوشيال ميديا */}
+      <div className="flex items-center gap-4">
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+          <FaLinkedin className="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition duration-300 text-2xl" />
+        </a>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+          <FaGithub className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition duration-300 text-2xl" />
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+          <FaInstagram className="text-gray-600 dark:text-gray-300 hover:text-pink-500 transition duration-300 text-2xl" />
+        </a>
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+          <FaXTwitter className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition duration-300 text-2xl" />
+        </a>
+      </div>
 
-            <div className="m-8 flex items-center justify-center gap-5 text-2xl">
-      {/* LinkedIn */}
-      <a
-        href="https://www.linkedin.com/in/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-gray-400 hover:text-blue-500 transition-all duration-300"
-      >
-        <FaLinkedin />
-      </a>
-
-      {/* GitHub */}
-      <a
-        href="https://github.com/YOUR_USERNAME"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-gray-400 hover:text-black dark:hover:text-white transition-all duration-300"
-      >
-        <FaGithub />
-      </a>
-
-      {/* Instagram */}
-      <a
-        href="https://www.instagram.com/ahmd3la2"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-gray-400 hover:text-pink-500 transition-all duration-300"
-      >
-        <FaInstagram />
-      </a>
-
-      {/* Twitter (X) */}
-      <a
-        href="https://twitter.com/ahmddesa"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-gray-400 hover:text-blue-400 transition-all duration-300"
-      >
-        <FaSquareXTwitter />
-      </a>
-    </div>
-
+      {/* زر التبديل بين الوضع الداكن والفاتح */}
       <button
         onClick={() => setDarkMode(!darkMode)}
-        className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white transition-all duration-300"
+        className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600 transition duration-300"
       >
-        {darkMode ? <BsSun size={24} /> : <BsMoon size={24} />}
+        {darkMode ? <FiSun size={24} /> : <FiMoon size={24} />}
       </button>
     </nav>
   );

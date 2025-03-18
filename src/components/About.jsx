@@ -18,7 +18,7 @@ const About = () => {
         transition={{duration:0.5}}
          className="w-full lg:w-1/2 lg:p-8">
           <div className="flex items-center justify-center">
-            <img className="rounded-2xl" src={aboutImg} alt="about" />
+            <img className="rounded-2xl " src={aboutImg} alt="about" />
           </div>
         </motion.div>
 
@@ -29,7 +29,7 @@ const About = () => {
         transition={{duration:0.5}}
         className="w-full lg:w-1/2">
           <div className="flex justify-center lg:justify-start">
-            <p className="text-lg text-gray-700 dark:text-white">{ABOUT_TEXT}</p>
+            <p className="m-4 text-center text-gray-900 dark:text-gray-100 leading-relaxed text-sm sm:text-base md:text-lg">{ABOUT_TEXT}</p>
           </div>
         </motion.div>
       </div>
