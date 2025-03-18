@@ -1,47 +1,54 @@
-import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
+import { motion } from "framer-motion";
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 
 const Contact = () => {
   return (
-    <div className="border-b border-neutral-900 pb-16 px-6">
-      <h2 className="my-10 text-center text-4xl font-bold text-gray-900 dark:text-white">
+    <div className="flex flex-col items-center py-16 
+                        transition-colors duration-300">
+      {/* العنوان */}
+      <motion.h1
+        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: -50 }}
+        transition={{ duration: 0.5 }}
+        className="text-4xl font-bold text-gray-900 dark:text-gray-200"
+      >
         Get in Touch
-      </h2>
+      </motion.h1>
+      <p className="text-gray-600 dark:text-gray-400 mt-2">
+        Feel free to reach out for any inquiries!
+      </p>
 
-      {/* Contact Card */}
-      <div className="max-w-xl mx-auto p-6 rounded-xl shadow-lg bg-white dark:bg-neutral-900 bg-opacity-80 dark:bg-opacity-80 backdrop-blur-md transition-all duration-300">
-        <p className="text-gray-700 dark:text-gray-300 text-center mb-6">
-          Feel free to reach out for any inquiries!
-        </p>
-
-        {/* Contact Details */}
-        <div className="space-y-4">
-          {/* Address */}
-          <div className="flex items-center space-x-3 p-3 rounded-lg bg-gray-150 dark:bg-neutral-800 transition-all duration-300">
-            <FiMapPin size={22} className="text-blue-500" />
-            <span className="text-gray-900 dark:text-gray-300">1234 Street Name, City, Country</span>
-          </div>
-
-          {/* Phone */}
-          <div className="flex items-center space-x-3 p-3 rounded-lg bg-gray-150 dark:bg-neutral-800 transition-all duration-300">
-            <FiPhone size={22} className="text-green-500" />
-            <span className="text-gray-900 dark:text-gray-300">+123 456 7890</span>
-          </div>
-
-          {/* Email */}
-          <div className="flex items-center justify-between p-3 rounded-lg bg-gray-150 dark:bg-neutral-800 transition-all duration-300">
-            <div className="flex items-center space-x-3">
-              <FiMail size={22} className="text-red-500" />
-              <span className="text-gray-900 dark:text-gray-300">your@email.com</span>
-            </div>
-            <a
-              href="mailto:your@email.com"
-              className="text-sm px-3 py-1.5 rounded-lg bg-blue-500 text-white hover:bg-blue-600 transition-all duration-300"
-            >
-              Send Email
-            </a>
-          </div>
+      {/* الفورم */}
+      <motion.div
+        whileInView={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0, scale: 0.9 }}
+        transition={{ duration: 0.5 }}
+        className="mt-6 w-full max-w-md p-6 bg-white dark:bg-[#2D2D2D] 
+                   rounded-lg shadow-md flex flex-col gap-4 transition-colors duration-300"
+      >
+        {/* العنوان */}
+        <div className="flex items-center bg-gray-200 dark:bg-[#3A3A3A] p-3 rounded-lg transition-colors">
+          <FaMapMarkerAlt className="text-blue-500 mr-3" />
+          <span className="text-gray-800 dark:text-gray-300">1234 Street Name, City, Country</span>
         </div>
-      </div>
+
+        {/* الهاتف */}
+        <div className="flex items-center bg-gray-200 dark:bg-[#3A3A3A] p-3 rounded-lg transition-colors">
+          <FaPhoneAlt className="text-green-500 mr-3" />
+          <span className="text-gray-800 dark:text-gray-300">+123 456 7890</span>
+        </div>
+
+        {/* البريد الإلكتروني */}
+        <div className="flex items-center justify-between bg-gray-200 dark:bg-[#3A3A3A] p-3 rounded-lg transition-colors">
+          <div className="flex items-center">
+            <FaEnvelope className="text-red-500 mr-3" />
+            <span className="text-gray-800 dark:text-gray-300">your@email.com</span>
+          </div>
+          <a href="mailto:your@email.com" className="bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2 rounded-lg transition">
+            Send Email
+          </a>
+        </div>
+      </motion.div>
     </div>
   );
 };
