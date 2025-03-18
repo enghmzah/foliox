@@ -26,7 +26,7 @@ body{
 @custom-variant dark (&:where(.dark, .dark *));
 
 ::-webkit-scrollbar {width: 8px !important ; height: 8px;}
-::-webkit-scrollbar-thumb{background: #737373;}
+::-webkit-scrollbar-thumb{background: #ffff;}
 ::-webkit-scrollbar-track{background: #fff;}
 nav ul button:hover .MuiTouchRipple-root{background: #0000 !important;}
 
